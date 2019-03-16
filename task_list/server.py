@@ -1,4 +1,3 @@
-
 """
     Flask server.
     export FLASK_APP=server.py
@@ -8,7 +7,14 @@
 from flask import Flask
 from flask import jsonify
 
-app = Flask(__name__)
+from flask import (
+    Blueprint, flash, redirect, render_template, request, url_for
+)
+
+from task_list import db
+from task_list.models import Task
+
+app = Blueprint('task_list', __name__)
 
 
 @app.route('/v1/test')
