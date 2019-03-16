@@ -3,15 +3,13 @@ language: python
 python:
   - "3.5"
   - "3.6"
-  - "3.7"
 
 # command to install dependencies
 install: "pip install -r requirements/dev.txt"
 
 # command to run tests
 script:
- - python -m pytest -v
- - coverage run --source=flask_server tests.test_basics.py test
+ - coverage run --source=flask_server tests/test_basics.py test
 
 after_success:
   - coveralls
