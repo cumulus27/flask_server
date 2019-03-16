@@ -9,7 +9,7 @@ install: "pip install -r requirements/dev.txt"
 
 # command to run tests
 script:
- - coverage run --source=flask_server tests/test_basics.py test
+ - coverage run --source=flask_server flask_test.py test
 
 after_success:
   - coveralls
