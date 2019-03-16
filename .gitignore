@@ -102,3 +102,15 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# idea
+.idea/
+
+# heroku
+venv/
+.env
+
+*.pyc
+__pycache__/
+
+instance/

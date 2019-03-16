@@ -1,0 +1,14 @@
+-r prod.txt
+
+# Debug
+Flask-DebugToolbar
+
+# PEP8
+pylint
+
+# Coverage
+coverage
+
+# Documentation
+Sphinx
+sphinx-autobuild
