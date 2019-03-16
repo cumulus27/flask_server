@@ -1,7 +1,0 @@
-# /usr/env python3
-
-import time
-
-if __name__ == "__main__":
-
-    time.sleep(5)
