@@ -8,3 +8,5 @@ psycopg2
 gunicorn
 Flask-Caching
 pylibmc
+flask_moment
+flask_sslify
