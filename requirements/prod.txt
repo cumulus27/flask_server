@@ -1,10 +1,1 @@
-flask
-Blinker
-SimpleJSON
-python-dotenv
-flask-sqlalchemy
-flask-migrate
-psycopg2
-gunicorn
-Flask-Caching
-pylibmc
+-r common.txt

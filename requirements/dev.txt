@@ -1,14 +1,11 @@
--r prod.txt
-
-# Debug
-Flask-DebugToolbar
-
-# PEP8
-pylint
-
-# Coverage
+-r common.txt
+certifi
+chardet
 coverage
-
-# Documentation
-Sphinx
-sphinx-autobuild
+faker
+httpie
+idna
+Pygments
+requests
+selenium
+urllib3
