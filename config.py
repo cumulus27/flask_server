@@ -2,6 +2,11 @@ import os
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 sqlite_dir = os.path.join(basedir, "instance")
+try:
+    if not os.path.exists(sqlite_dir):
+        os.makedirs(sqlite_dir)
+except Exception as e:
+    print("Error in create path: {}".format(e))
 
 
 class Config:
