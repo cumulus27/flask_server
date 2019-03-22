@@ -12,4 +12,5 @@ def mobile_login():
     if g.current_user.is_anonymous or g.token_used:
         return unauthorized('Invalid credentials')
     return jsonify({'token': g.current_user.generate_auth_token(
-        expiration=360000), 'expiration': 360000})
+        expiration=36000), 'expiration': 36000,
+        'state': 'success', 'username': g.current_user.username})
