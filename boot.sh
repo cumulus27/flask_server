@@ -1,5 +1,6 @@
 #!/bin/sh
-source /home/zte/anaconda3/bin/activate flask_server
+#source /home/zte/anaconda3/bin/activate flask_server
+source /home/py/local/anaconda3/bin/activate flask
 
 while true; do
     flask deploy
