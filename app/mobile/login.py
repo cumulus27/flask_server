@@ -14,3 +14,9 @@ def mobile_login():
     return jsonify({'token': g.current_user.generate_auth_token(
         expiration=36000), 'expiration': 36000,
         'state': 'success', 'username': g.current_user.username})
+
+
+@mobile.route('/users/<int:id>')
+def get_user(id):
+    user = User.query.get_or_404(id)
+    return jsonify(user.to_json())

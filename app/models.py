@@ -95,6 +95,7 @@ class User(UserMixin, db.Model):
     last_seen = db.Column(db.DateTime(), default=datetime.utcnow)
     avatar_hash = db.Column(db.String(32))
     posts = db.relationship('Post', backref='author', lazy='dynamic')
+    user_data = db.relationship('UserData', backref='author', lazy='dynamic')
     followed = db.relationship('Follow',
                                foreign_keys=[Follow.follower_id],
                                backref=db.backref('follower', lazy='joined'),
@@ -362,6 +363,30 @@ class Comment(db.Model):
         if body is None or body == '':
             raise ValidationError('comment does not have a body')
         return Comment(body=body)
+
+
+class UserData(db.Model):
+    __tablename__ = 'user_data'
+    id = db.Column(db.Integer, primary_key=True)
+    author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    body = db.Column(db.Text)
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+
+    def to_json(self):
+        json_post = {
+            'url': url_for('mobile.get_data', id=self.id),
+            'body': self.body,
+            'timestamp': self.timestamp,
+            'author_url': url_for('mobile.get_user', id=self.author_id)
+        }
+        return json_post
+
+    @staticmethod
+    def from_json(json_post):
+        body = json_post.get('body')
+        if body is None or body == '':
+            raise ValidationError('post does not have a body')
+        return UserData(body=body)
 
 
 db.event.listen(Comment.body, 'set', Comment.on_changed_body)
