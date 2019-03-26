@@ -377,9 +377,19 @@ class UserData(db.Model):
             'url': url_for('mobile.get_data', id=self.id),
             'body': self.body,
             'timestamp': self.timestamp,
-            'author_url': url_for('mobile.get_user', id=self.author_id)
+            'author_url': url_for('mobile.get_user', id=self.author_id),
+            'state': 'success'
         }
         return json_post
+
+    def to_get_json(self):
+        json_get = {
+            'data': self.body,
+            'timestamp': self.timestamp,
+            'user_id': self.author_id,
+            'state': 'success'
+        }
+        return json_get
 
     @staticmethod
     def from_json(json_post):

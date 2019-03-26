@@ -30,7 +30,7 @@ def data_upload():
 @mobile.route('/data/<int:id>', methods=['GET'])
 def get_data(id):
     post = UserData.query.get_or_404(id)
-    return jsonify(post.to_json())
+    return jsonify(post.to_get_json())
 
 
 @mobile.route('/data/<int:id>', methods=['PUT'])
