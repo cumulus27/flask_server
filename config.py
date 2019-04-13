@@ -10,7 +10,7 @@ except Exception as e:
 
 
 class Config:
-    SECRET_KEY = os.environ.get('SECRET_KEY') or 'hard to guess string'
+    SECRET_KEY = os.environ.get('SECRET_KEY') or 'onishi saori minase inori'
     MAIL_SERVER = os.environ.get('MAIL_SERVER', 'smtp.163.com')
     MAIL_PORT = int(os.environ.get('MAIL_PORT', '465'))
     MAIL_USE_TLS = os.environ.get('MAIL_USE_TLS', 'false').lower() in \
